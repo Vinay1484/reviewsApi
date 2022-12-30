@@ -11,7 +11,7 @@ def hello():
 @app.route('/reviews')
 def reviews():
     title = request.form["title"]
-    times = request.form["times"]
+    times = int(request.form["times"])
     text = ""
     stars = 0
     num = 0
