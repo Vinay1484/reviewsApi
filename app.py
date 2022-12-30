@@ -8,7 +8,7 @@ app = Flask(__name__)
 def hello():
     return "ok"
 
-@app.route('reviews')
+@app.route('/reviews')
 def reviews():
     title = request.form["title"]
     times = 4
