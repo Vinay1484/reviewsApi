@@ -26,6 +26,8 @@ def reviews():
                     text += review["content"]
                     stars += review["stars"]
                     num += 1
+            else:
+                continue
         else:
             res2 = requests.get("https://imdb-api.tprojects.workers.dev"+res["next_api_path"])
             if(res2.status_code==200):
@@ -35,7 +37,8 @@ def reviews():
                     text += review["content"]
                     stars += review["stars"]
                     num += 1
-
+            else:
+                continue
     return {
         "text":text,
         "stars":stars//num
