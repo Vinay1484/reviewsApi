@@ -21,8 +21,7 @@ def reviews():
             res = requests.get(f"https://imdb-api.tprojects.workers.dev/reviews/{title}?option=date&sortOrder=desc")
 
     return {
-        "text":res,
-        "stars":stars//num
+        "text":res
     }
     
 
