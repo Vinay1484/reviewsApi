@@ -11,7 +11,7 @@ def hello():
 @app.route('/reviews')
 def reviews():
     title = request.form["title"]
-    times = 4
+    times = request.form["times"]
     text = ""
     stars = 0
     num = 0
@@ -20,14 +20,14 @@ def reviews():
         if(i==0):
             res = requests.get(f"https://imdb-api.tprojects.workers.dev/reviews/{title}?option=date&sortOrder=desc").json()
             for review in res["reviews"]:
-                text += "\n\n"
+                text += "\n"
                 text += review["content"]
                 stars += review["stars"]
                 num += 1
         else:
             res2 = requests.get("https://imdb-api.tprojects.workers.dev"+res["next_api_path"]).json()
             for review in res2["reviews"]:
-                text += "\n\n"
+                text += "\n"
                 text += review["content"]
                 stars += review["stars"]
                 num += 1
