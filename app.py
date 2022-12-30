@@ -19,21 +19,9 @@ def reviews():
     for i in range(times):
         if(i==0):
             res = requests.get(f"https://imdb-api.tprojects.workers.dev/reviews/{title}?option=date&sortOrder=desc")
-            for review in res.json()["reviews"]:
-                text += "\n\n"
-                text += review["content"]
-                stars += review["stars"]
-                num += 1
-        else:
-            res2 = requests.get("https://imdb-api.tprojects.workers.dev"+res.json()["next_api_path"])
-            for review in res2.json()["reviews"]:
-                text += "\n\n"
-                text += review["content"]
-                stars += review["stars"]
-                num += 1
 
     return {
-        "text":text,
+        "text":res,
         "stars":stars//num
     }
     
